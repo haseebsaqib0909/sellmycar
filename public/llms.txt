@@ -1,0 +1,38 @@
+# Sell My Car
+
+> A UK car buying service. Sell your car fast and get paid the same day.
+
+## What We Do
+
+- Free instant car valuation — enter your reg plate and see your vehicle details confirmed in seconds
+- UK-based car buyers — we buy any make, model, age or condition
+- No fees and no haggling — the offer is what you receive
+- Free collection from your door anywhere in the UK
+- Same day payment on collection
+
+## How It Works
+
+1. Enter your reg plate — we pull your vehicle details from the DVLA instantly
+2. Confirm your car and add your mileage and contact details
+3. We review your enquiry and call you with an offer — usually within the hour
+4. Accept the offer, we collect for free, and you get paid the same day
+
+## Pages
+
+- Homepage: / — Enter your reg plate to get a free valuation
+- How It Works: /how-it-works — Full step-by-step guide to selling your car with us
+- Sell My Car: /sell-my-car — What cars we buy, condition guide, and what to expect
+- FAQ: /faq — Common questions about selling your car
+- About: /about — Who we are and why sellers trust us
+- Contact: /contact — Get in touch via the enquiry form
+
+## Service Area
+
+United Kingdom
+
+## Useful Tools (coming soon)
+
+- MOT checker
+- Car tax checker
+- ULEZ checker
+- Car value tracker
