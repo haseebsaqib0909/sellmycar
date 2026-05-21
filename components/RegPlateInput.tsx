@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 interface RegPlateInputProps {
   size?: "default" | "large";
@@ -13,8 +14,8 @@ export default function RegPlateInput({
   buttonLabel = "Get my free valuation",
   onSubmit,
 }: RegPlateInputProps) {
+  const router = useRouter();
   const [reg, setReg] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   function handleChange(value: string) {
     const cleaned = value.toUpperCase().replace(/[^A-Z0-9 ]/g, "").slice(0, 8);
@@ -23,12 +24,19 @@ export default function RegPlateInput({
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!reg.trim()) return;
-    setSubmitted(true);
-    onSubmit?.(reg.trim());
+    const trimmed = reg.trim();
+    if (!trimmed) return;
+
+    if (onSubmit) {
+      onSubmit(trimmed);
+      return;
+    }
+    const encoded = encodeURIComponent(trimmed.replace(/\s+/g, ""));
+    router.push(`/valuation?reg=${encoded}`);
   }
 
-  const plateTextSize = size === "large" ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl";
+  const plateTextSize =
+    size === "large" ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl";
   const plateHeight = size === "large" ? "h-20 sm:h-24" : "h-16 sm:h-20";
 
   return (
@@ -71,18 +79,14 @@ export default function RegPlateInput({
         <button
           type="submit"
           className={`bg-brand hover:bg-brand-hover active:scale-[0.98] text-white font-semibold rounded-md px-6 sm:px-8 transition-all duration-200 whitespace-nowrap shadow-lg shadow-brand/20 ${
-            size === "large" ? "text-base sm:text-lg py-4" : "text-base py-3 sm:py-4"
+            size === "large"
+              ? "text-base sm:text-lg py-4"
+              : "text-base py-3 sm:py-4"
           }`}
         >
           {buttonLabel}
         </button>
       </div>
-
-      {submitted && (
-        <div className="mt-4 max-w-2xl mx-auto px-4 py-3 bg-brand-light border border-brand/20 rounded-md text-sm text-brand">
-          Looking up <span className="font-bold">{reg}</span>… (DVLA lookup launches in the next build)
-        </div>
-      )}
     </form>
   );
 }
