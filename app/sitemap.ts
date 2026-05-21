@@ -42,7 +42,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     frequency: "monthly" as const,
   }));
 
-  return [...staticPages, ...carMakePages, ...locationPages].map(
+  const blogPostPages = [
+    "how-much-is-my-car-worth",
+    "sell-or-trade-in",
+    "documents-to-sell-a-car",
+    "selling-with-outstanding-finance",
+    "private-vs-dealer-vs-buying-service",
+  ].map((slug) => ({
+    path: `/blog/${slug}`,
+    priority: 0.6,
+    frequency: "monthly" as const,
+  }));
+
+  return [
+    ...staticPages,
+    ...carMakePages,
+    ...locationPages,
+    ...blogPostPages,
+  ].map(
     ({ path, priority, frequency }) => ({
       url: `${siteUrl}${path}`,
       lastModified: now,

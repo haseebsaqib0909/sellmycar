@@ -115,9 +115,6 @@ export default function BlogPage() {
             ))}
           </div>
 
-          <p className="text-center text-sm text-slate-500 mt-10">
-            Individual article pages launch in the next release.
-          </p>
         </div>
       </section>
 
