@@ -4,7 +4,9 @@
       "Bash(npx create-next-app@14 . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\")",
       "Bash(ls \"d:\\\\sellmycar\" && echo \"---\" && ls \"d:\\\\_sellmycar_temp\" 2>/dev/null || echo \"temp gone\")",
       "Read(//d/_sellmycar_temp/**)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(git push *)",
+      "WebFetch(domain:sellmycar-livid.vercel.app)"
     ]
   }
 }
